@@ -5,9 +5,18 @@ export default function Home() {
 
     return (
         <>
-            <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
-            <h2 className={styles.description}>会社名：{compnayName}</h2>
-            <p className={styles.description}>私達は市場をリードしているグローバルテックカンパニーです！</p>
+            <section className={styles.top}>
+                <div>
+                    <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
+                    <h2 className={styles.description}>会社名：{compnayName}</h2>
+                    <p className={styles.description}>私達は市場をリードしているグローバルテックカンパニーです！</p>
+                </div>
+                <img
+                    className={styles.bgimg}
+                    src="/img-mv.jpg"
+                    alt=""
+                />
+            </section>
         </>
     );
 }
