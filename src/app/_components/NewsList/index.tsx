@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./index.module.css";
 
 import { News } from "@/app/_libs/microcms";
+import Category from "@/app/_components/Category";
+import Date from "@/app/_components/Date";
 
 export default function NewsList({ news }: News[]) {
     return news.length ? (
@@ -22,17 +24,8 @@ export default function NewsList({ news }: News[]) {
                         <dl className={styles.content}>
                             <dt className={styles.title}>{article.title}</dt>
                             <dd className={styles.meta}>
-                                <span className={styles.tag}>{article.category.name}</span>
-                                <span className={styles.date}>
-                                    <Image
-                                        src="/clock.svg"
-                                        alt=""
-                                        width={16}
-                                        height={16}
-                                        priority
-                                    />
-                                    {article.publishedAt}
-                                </span>
+                                <Category category={article.category} />
+                                <Date date={article.publishedAt ?? article.publishedAt} />
                             </dd>
                         </dl>
                     </div>

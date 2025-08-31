@@ -1,9 +1,11 @@
 export type News = {
     id: string;
     title: string;
-    category: {
-        name: string;
-    };
+    category: Category;
     publishedAt: string;
     createdAt: string;
+};
+
+export type Category = {
+    name: string;
 };
