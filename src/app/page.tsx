@@ -19,7 +19,7 @@ const data: { contents: News[] } = {
             category: {
                 name: "更新情報",
             },
-            publishedAt: "2023/05/09",
+            publishedAt: "2023/05/19",
             createdAt: "2023/05/19",
         },
         {
@@ -28,8 +28,8 @@ const data: { contents: News[] } = {
             category: {
                 name: "更新情報",
             },
-            publishedAt: "2023/05/19",
-            createdAt: "2023/05/19",
+            publishedAt: "2023/06/19",
+            createdAt: "2023/06/19",
         },
         {
             id: "3",
@@ -45,6 +45,7 @@ const data: { contents: News[] } = {
 
 export default function Home() {
     const compnayName = "テスト株式会社";
+    const sliceData = data.contents.slice(0, 2);
 
     return (
         <>
@@ -65,7 +66,7 @@ export default function Home() {
             <section className={styles.news}>
                 <h2 className={styles.news_title}>News</h2>
                 <ul>
-                    {data.contents.map((article) => {
+                    {sliceData.map((article) => {
                         return (
                             <li
                                 key={article.id}
@@ -80,7 +81,7 @@ export default function Home() {
                                         height={630}
                                     />
                                     <dl className={styles.content}>
-                                        <dt className={styles.list}>{article.title}</dt>
+                                        <dt className={styles.news_item_title}>{article.title}</dt>
                                         <dd className={styles.meta}>
                                             <span className={styles.tag}>{article.category.name}</span>
                                             <span className={styles.date}>
@@ -91,7 +92,6 @@ export default function Home() {
                                                     height={16}
                                                     priority
                                                 />
-
                                                 {article.publishedAt}
                                             </span>
                                         </dd>
