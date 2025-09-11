@@ -9,7 +9,6 @@ import { TOP_NEWS_LIMIT } from "@/app/_constants";
 export default async function Home() {
     const compnayName = "テスト株式会社";
     const data = await getNewsList({ limit: TOP_NEWS_LIMIT });
-    console.log(data);
 
     return (
         <>
