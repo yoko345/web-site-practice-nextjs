@@ -56,6 +56,12 @@ export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries
         endpoint: "news",
         contentId,
         queries,
+        customRequestInit: {
+            next: {
+                // 下書きのプレビューのみSSRを使用し、公開されているものはISRを使用する、という設定
+                revalidate: queries?.draftKey === undefined ? 10 : 0,
+            },
+        },
     });
 
     return detailData;
