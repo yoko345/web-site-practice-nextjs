@@ -8,7 +8,12 @@ import SearchField from "@/app/_components/SearchField";
  * キャッシュの保持期間
  * →0 秒、つまりキャッシュを使わずに、毎回オリジンサーバーにデータを取得しに行くようになる
  */
-export const revalidate = 0;
+// export const revalidate = 0;
+/*
+ * キャッシュの保持期間
+ * →10 秒、つまり 10 秒間は CDN にあるキャッシュが保持されるようになる
+ */
+export const revalidate = 10;
 
 export default async function Page() {
     const { contents: news, totalCount } = await getNewsList({
