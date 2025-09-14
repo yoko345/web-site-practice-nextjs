@@ -13,7 +13,7 @@ import SearchField from "@/app/_components/SearchField";
  * キャッシュの保持期間
  * →10 秒、つまり 10 秒間は CDN にあるキャッシュが保持されるようになる
  */
-export const revalidate = 10;
+// export const revalidate = 10;
 
 export default async function Page() {
     const { contents: news, totalCount } = await getNewsList({

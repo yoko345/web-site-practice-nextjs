@@ -18,7 +18,7 @@ type Props = {
  * →指定しないと保持期間が無限となり、CDNのキャッシュが残ることに伴い、ユーザーのアクセス時にWebサーバーまでリクエストが到達しなくなることを防ぐ目的の指定
  */
 // export const revalidate = 0;
-export const revalidate = 10;
+// export const revalidate = 10;
 
 export default async function Page({ params, searchParams }: Props) {
     const data = await getNewsDetail(params.newsId, {
