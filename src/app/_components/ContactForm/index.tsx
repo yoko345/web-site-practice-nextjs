@@ -3,8 +3,9 @@
 import { useFormState } from "react-dom";
 import styles from "./index.module.css";
 import { createContactData } from "@/app/_actions/contact";
+import { ContactStateType } from "@/app/_libs/contactStateType";
 
-const initialState = {
+const initialState: ContactStateType = {
     status: "",
     message: "",
 };
