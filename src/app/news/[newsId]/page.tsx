@@ -3,6 +3,7 @@ import Article from "@/app/_components/Article";
 import styles from "./page.module.css";
 import { getNewsDetail } from "@/app/_libs/microcms";
 import ButtonLink from "@/app/_components/ButtonLink";
+import { Metadata } from "next";
 
 type Props = {
     params: {
@@ -12,6 +13,22 @@ type Props = {
         dk?: string;
     };
 };
+
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+    const data = await getNewsDetail(params.newsId, {
+        draftKey: searchParams.dk,
+    });
+
+    return {
+        title: data.title,
+        description: data.description,
+        openGraph: {
+            title: data.title,
+            description: data.description,
+            images: [data.thumbnail?.url ?? ""],
+        },
+    };
+}
 
 /*
  * キャッシュの保持期間
