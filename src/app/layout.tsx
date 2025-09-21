@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer/index";
@@ -32,6 +33,8 @@ export default function RootLayout({
                 {children}
                 <Footer />
             </body>
+            <GoogleAnalytics gaId="XXX" />
+            <GoogleTagManager gtmId="XXX" />
         </html>
     );
 }

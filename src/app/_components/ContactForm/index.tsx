@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormState } from "react-dom";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 import styles from "./index.module.css";
 import { createContactData } from "@/app/_actions/contact";
 import { ContactStateType } from "@/app/_libs/contactStateType";
@@ -13,6 +14,13 @@ const initialState: ContactStateType = {
 export default function ContactForm() {
     // useFormStateは第一引数にServerActionsを、第二引数にServerActionsから受け取る初期値を指定できる
     const [state, formAction] = useFormState(createContactData, initialState);
+
+    const handleGASubmit = () => {
+        sendGAEvent({ event: "contact", value: "submit" });
+    };
+    const handleGTMSubmit = () => {
+        sendGTMEvent({ event: "contact", value: "submit" });
+    };
 
     if (state.status === "success") {
         return (
@@ -28,6 +36,8 @@ export default function ContactForm() {
         <form
             className={styles.form}
             action={formAction}
+            onSubmit={handleGASubmit}
+            // onSubmit={handleGTMSubmit}
         >
             <div className={styles.horizontal}>
                 <div className={styles.item}>
